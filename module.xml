@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="pkcs7-util.ZPM">
+  <Document name="pkcs7-utils.ZPM">
     <Module>
-      <Name>pkcs7-util</Name>
+      <Name>pkcs7-utils</Name>
       <Version>1.0.1</Version>
       <Description>Helper class to build cms/pkcs7 object</Description>
       <Packaging>module</Packaging>
