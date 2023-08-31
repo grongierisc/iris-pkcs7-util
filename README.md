@@ -15,7 +15,7 @@ zpm "install pkcs7-utils"
 with pip :
 
 ```bash
-pip install iris-pkcs7-utils
+pip install https://github.com/grongierisc/iris-pkcs7-util/releases/download/v0.0.1/iris_gen_cms-0.0.1-py3-none-any.whl
 ```
 
 ## Usage
