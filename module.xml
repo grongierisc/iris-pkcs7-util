@@ -3,7 +3,7 @@
   <Document name="pkcs7-utils.ZPM">
     <Module>
       <Name>pkcs7-utils</Name>
-      <Version>1.0.4</Version>
+      <Version>1.0.5</Version>
       <Description>Helper class to build cms/pkcs7 object</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
