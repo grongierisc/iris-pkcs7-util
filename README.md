@@ -12,6 +12,12 @@ It's distributed on ZPM/IPM.
 zpm "install pkcs7-utils"
 ```
 
+with pip :
+
+```bash
+pip install iris-pkcs7-utils
+```
+
 ## Usage
 
 ```objectscript
@@ -25,4 +31,34 @@ zpm "install pkcs7-utils"
 
     $$$ThrowOnError(tUtils.CreateCMSStream(tContent,tCertFileName, tKeyFileName, tPassPhrase, .tStream))
     zwrite tStream
+```
+
+## Command line
+
+```bash
+gencms -h
+```
+
+result:
+
+```bash
+usage: gencms [-h] content_filename cert_filename key_filename key_password output_filename
+
+Generate a CMS file
+
+positional arguments:
+  content_filename  the file to sign
+  cert_filename     the certificate to use
+  key_filename      the private key to use
+  key_password      the private key password
+  output_filename   the output CMS file
+
+optional arguments:
+  -h, --help        show this help message and exit
+```
+
+example:
+
+```bash
+gencms misc/in/NORMEDRE_300356-840001861_20181_25-1_20190326175624.txt misc/cert/asip-p12-EL-TEST-ORG-SIGN-20200702-170758.crt.pem misc/key/asip-p12-EL-TEST-ORG-SIGN-20200702-170758.key.pem toto misc/out/toto.cms
 ```
