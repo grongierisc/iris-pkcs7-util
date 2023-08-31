@@ -10,8 +10,6 @@ from asn1crypto import cms,x509,pem
 from OpenSSL import crypto
 from datetime import datetime,timezone
 
-import iris
-
 def load_certificates(cert_filename):
     # load the certificate
     with open(cert_filename, 'rb') as f:
