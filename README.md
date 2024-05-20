@@ -21,16 +21,16 @@ pip install https://github.com/grongierisc/iris-pkcs7-util/releases/download/v0.
 ## Usage
 
 ```objectscript
-    set tUtils = ##class(dc.cms.Utils).%New()
-    set tCertFileName = "cert.pem"
-    set tKeyFileName = "key.pem"
-    set tPassPhrase = "TOTO"
-    set tContent = ##class(%Stream.FileCharacter).%New()
-    $$$ThrowOnError(tContent.LinkToFile("content.txt"))
-
-
-    $$$ThrowOnError(tUtils.CreateCMSStream(tContent,tCertFileName, tKeyFileName, tPassPhrase, .tStream))
-    zwrite tStream
+	set tUtils = ##class(dc.cms.Encrypt).%New()
+	set tCertFileName = "/path/to/cert/file.crt.pem"
+	set tKeyFileName = "/path/to/key/file.key.pem"
+	set tPassPhrase = "***********"
+	set tContent = ##class(%Stream.FileCharacter).%New()
+	$$$ThrowOnError(tContent.LinkToFile("/path/to/content/to/be/signed.txt"))
+	set tStream = ##class(%Stream.FileBinary).%New()
+	do tStream.LinkToFile("/path/to/output/file/for/cms/binary.cms")
+	$$$ThrowOnError(tUtils.CreateCMSStream(tContent,tCertFileName, tKeyFileName, tPassPhrase, .tStream))
+	set tsc = tStream.%Save()
 ```
 
 ## Command line
@@ -60,5 +60,5 @@ optional arguments:
 example:
 
 ```bash
-gencms misc/in/NORMEDRE_300356-840001861_20181_25-1_20190326175624.txt misc/cert/asip-p12-EL-TEST-ORG-SIGN-20200702-170758.crt.pem misc/key/asip-p12-EL-TEST-ORG-SIGN-20200702-170758.key.pem toto misc/out/toto.cms
+gencms misc\in\test.txt misc\cert\asip-p12-EL-TEST-ORG-SIGN-20240304-094358.crt.pem misc\cert\asip-p12-EL-TEST-ORG-SIGN-20240304-094358.key.pem Intersystems2024! misc/out/toto.cms
 ```
