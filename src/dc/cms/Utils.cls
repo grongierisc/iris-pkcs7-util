@@ -9,12 +9,7 @@ from OpenSSL import crypto
 from datetime import datetime,timezone
 }
 
-Method CreateCMSStream(
-	pContent As %Library.CharacterStream,
-	pCertFileName As %String,
-	pKeyFileName As %String,
-	pPassword As %String,
-	Output pResult As %Library.CharacterStream) As %Status
+Method CreateCMSStream(pContent As %Library.CharacterStream, pCertFileName As %String, pKeyFileName As %String, pPassword As %String, Output pResult As %Library.CharacterStream) As %Status
 {
     Set tSC = $$$OK
     // Convert the content to bytes
@@ -58,9 +53,7 @@ Method "load_certificates"(certfilename) As %String [ Language = python ]
     return cert
 }
 
-Method "load_private_key"(
-	keyfilename,
-	keypassword) As %String [ Language = python ]
+Method "load_private_key"(keyfilename, keypassword) As %String [ Language = python ]
 {
     # load the private key
     with open(keyfilename, 'rb') as f:
@@ -85,11 +78,7 @@ Method "certificate_usage_check"(cert) As %String [ Language = python ]
         raise Exception('Certificate not allowed for digital signature')
 }
 
-Method GenerateCMS(
-	content,
-	certfilename,
-	keyfilename,
-	keypassword) As %String [ Language = python ]
+Method GenerateCMS(content, certfilename, keyfilename, keypassword) As %String [ Language = python ]
 {
     # load the certificate
     cert = self.load_certificates(certfilename)
